@@ -38,3 +38,4 @@ jobs:
           file: ./FRONTEND/onlinebanking-frontend/frontend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hackathon-frontend:latest
+          no-cache: true
