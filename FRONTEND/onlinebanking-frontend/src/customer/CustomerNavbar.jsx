@@ -8,8 +8,8 @@ import axios from "axios";
 import DepositWithdraw from "./DepositWithdraw";
 import Statements from "./Statements";
 
-import "../admin/admincss/AdminNavbar.css";
-import Home from './../main/Home';
+import "./customercss/CustomerNavbar.css";
+import CustomerHome from "./CustomerHome";
 import Transferfunds from './Transferfunds';
 import CustomerProfile from "./CustomerProfile";
 import Loans from './Loans';
@@ -61,7 +61,7 @@ export default function CustomerNavBar() {
   return (
     <>
       {/* 🔹 Top Navigation */}
-      <nav className="admin-navbar">
+      <nav className="customer-navbar">
         <div className="logo">OnlineBank</div>
 
         <div className="nav-links">
@@ -102,16 +102,7 @@ export default function CustomerNavBar() {
       {/* 🔹 Routed Pages */}
       <main className="content">
         <Routes>
-          {/* <Route path="/customer/dashboard" element={<CustomerDashboard />} />
-      
-    
-          <Route path="/customer/bill-payments" element={<BillPayments />} />
-          
-         
-          <Route path="/customer/profile" element={<CustomerProfile />} />
-          <Route path="/customer/update" element={<UpdateProfile />} /> */}
-
-           <Route path="/" element={<Home/>} />
+          <Route path="/" element={<CustomerHome />} />
            <Route path="/customer/statements" element={<Statements />} />
                <Route path="/customer/deposit-withdraw" element={<DepositWithdraw />} />
                      <Route path="/funds" element={<Transferfunds/>} />

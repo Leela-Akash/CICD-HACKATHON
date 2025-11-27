@@ -46,39 +46,84 @@ export default function CustomerLogin() {
 
   return (
     <div className="login-container">
-      <div className="login-form">
-        <h2>Customer Sign In</h2>
-        {error && <p className="error-message">{error}</p>}
+      <div className="login-wrapper">
+        <div className="login-left">
+          <div className="login-hero">
+            <div className="bank-icon">
+              <i className="fas fa-university"></i>
+            </div>
+            <h1>Welcome Back</h1>
+            <p>Sign in to access your account and manage your finances securely. Your banking experience starts here.</p>
+            <div className="security-features">
+              <div className="security-item">
+                <i className="fas fa-shield-alt"></i>
+                <span>Bank-Level Security</span>
+              </div>
+              <div className="security-item">
+                <i className="fas fa-lock"></i>
+                <span>Encrypted Transactions</span>
+              </div>
+              <div className="security-item">
+                <i className="fas fa-user-shield"></i>
+                <span>Protected Account</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="login-right">
+          <div className="login-form">
+            <div className="form-header">
+              <h2>Sign In</h2>
+              <p>Enter your credentials to continue</p>
+            </div>
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-            placeholder="Enter your username"
-          />
+            {error && (
+              <div className="alert-message error">
+                <i className="fas fa-exclamation-circle"></i>
+                <span>{error}</span>
+              </div>
+            )}
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            placeholder="Enter your password"
-          />
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="username">
+                  <i className="fas fa-user"></i> Username
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter your username"
+                />
+              </div>
 
-          <button type="submit" className="signin-button">
-            Sign In
-          </button>
-        </form>
+              <div className="form-group">
+                <label htmlFor="password">
+                  <i className="fas fa-lock"></i> Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter your password"
+                />
+              </div>
 
-        <p className="signup-link">
-          Don't have an account? <Link to="/customerregistration">Sign Up</Link>
-        </p>
+              <button type="submit" className="signin-button">
+                <i className="fas fa-sign-in-alt"></i>
+                Sign In
+              </button>
+            </form>
+
+            <p className="signup-link">
+              Don't have an account? <Link to="/customerregistration">Create Account</Link>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

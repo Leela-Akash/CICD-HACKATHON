@@ -63,101 +63,186 @@ export default function CustomerRegistration() {
 
   return (
     <div className="register-container">
-      <div className="register-form">
-        <h3>Create Customer Account</h3>
+      <div className="register-wrapper">
+        <div className="register-left">
+          <div className="register-hero">
+            <div className="bank-icon">
+              <i className="fas fa-university"></i>
+            </div>
+            <h1>Join OnlineBank</h1>
+            <p>Create your account and start managing your finances with ease. Secure, fast, and reliable banking at your fingertips.</p>
+            <div className="features-list">
+              <div className="feature-item">
+                <i className="fas fa-check-circle"></i>
+                <span>Instant Account Setup</span>
+              </div>
+              <div className="feature-item">
+                <i className="fas fa-check-circle"></i>
+                <span>Secure Banking</span>
+              </div>
+              <div className="feature-item">
+                <i className="fas fa-check-circle"></i>
+                <span>24/7 Access</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="register-right">
+          <div className="register-form">
+            <div className="form-header">
+              <h2>Create Account</h2>
+              <p>Fill in your details to get started</p>
+            </div>
 
-        {message && <p className="success-message">{message}</p>}
-        {error && <p className="error-message">{error}</p>}
+            {message && (
+              <div className="alert-message success">
+                <i className="fas fa-check-circle"></i>
+                <span>{message}</span>
+              </div>
+            )}
+            {error && (
+              <div className="alert-message error">
+                <i className="fas fa-exclamation-circle"></i>
+                <span>{error}</span>
+              </div>
+            )}
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="fullName">Full Name</label>
-          <input
-            type="text"
-            id="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            required
-            placeholder="Enter full name"
-          />
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="fullName">
+                    <i className="fas fa-user"></i> Full Name
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                    placeholder="Enter your full name"
+                  />
+                </div>
+              </div>
 
-          <label htmlFor="gender">Gender</label>
-          <select
-            id="gender"
-            value={formData.gender}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
+              <div className="form-row two-columns">
+                <div className="form-group">
+                  <label htmlFor="gender">
+                    <i className="fas fa-venus-mars"></i> Gender
+                  </label>
+                  <select
+                    id="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="dob">
+                    <i className="fas fa-calendar-alt"></i> Date of Birth
+                  </label>
+                  <input
+                    type="date"
+                    id="dob"
+                    value={formData.dob}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
 
-          <label htmlFor="dob">Date of Birth</label>
-          <input
-            type="date"
-            id="dob"
-            value={formData.dob}
-            onChange={handleChange}
-            required
-          />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="email">
+                    <i className="fas fa-envelope"></i> Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
 
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            placeholder="Enter email"
-          />
+              <div className="form-row two-columns">
+                <div className="form-group">
+                  <label htmlFor="username">
+                    <i className="fas fa-user-circle"></i> Username
+                  </label>
+                  <input
+                    type="text"
+                    id="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    required
+                    placeholder="Choose a username"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">
+                    <i className="fas fa-lock"></i> Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                    placeholder="Create password"
+                  />
+                </div>
+              </div>
 
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-            placeholder="Choose username"
-          />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="phone">
+                    <i className="fas fa-phone"></i> Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    placeholder="+91 1234567890"
+                  />
+                </div>
+              </div>
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            placeholder="Create password"
-          />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="address">
+                    <i className="fas fa-map-marker-alt"></i> Address
+                  </label>
+                  <input
+                    type="text"
+                    id="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    required
+                    placeholder="Enter your complete address"
+                  />
+                </div>
+              </div>
 
-          <label htmlFor="phone">Phone Number</label>
-          <input
-            type="tel"
-            id="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            placeholder="Enter phone number"
-          />
+              <button type="submit" className="submit-btn">
+                <i className="fas fa-user-plus"></i>
+                Create Account
+              </button>
+            </form>
 
-          <label htmlFor="address">Address</label>
-          <input
-            type="text"
-            id="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-            placeholder="Enter your address"
-          />
-
-          <button type="submit">Create Account</button>
-        </form>
-
-        <p className="login-link">
-          Already have an account? <Link to="/customerlogin">Sign In</Link>
-        </p>
+            <p className="login-link">
+              Already have an account? <Link to="/customerlogin">Sign In</Link>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
