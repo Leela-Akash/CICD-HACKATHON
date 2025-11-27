@@ -1,8 +1,16 @@
+# Dependency folders
 node_modules
 dist
-.git
-.gitignore
+dist-ssr
 
-# Docker files themselves
-Dockerfile
-.dockerignore
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Env files (do NOT copy to docker)
+.env
+*.local
+
+# Git (you can ignore or keep, but never ignore Dockerfile!)
+.git
