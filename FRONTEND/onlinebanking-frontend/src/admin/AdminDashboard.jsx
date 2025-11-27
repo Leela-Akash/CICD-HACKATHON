@@ -135,7 +135,7 @@ export default function AdminDashboard() {
         <div className="stat-card health-card">
           <div className="stat-icon">⚡</div>
           <div className="stat-content">
-            <h3>{stats.transactionSuccessRate?.toFixed(1)}%</h3>
+            <h3>{Number(stats.transactionSuccessRate || 0).toFixed(1)}%</h3>
             <p>Transaction Success Rate</p>
             <small>API Uptime: {stats.apiUptime}%</small>
           </div>

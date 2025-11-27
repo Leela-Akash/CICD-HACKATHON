@@ -205,7 +205,7 @@ export default function Reports() {
           <div className="stat-card success">
             <div className="stat-icon">✅</div>
             <div className="stat-content">
-              <h3>{systemHealth.transactionSuccessRate?.toFixed(1)}%</h3>
+              <h3>{Number(systemHealth.transactionSuccessRate || 0).toFixed(1)}%</h3>
               <p>Transaction Success Rate</p>
             </div>
           </div>
