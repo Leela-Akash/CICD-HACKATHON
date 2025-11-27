@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { 
+  BarChart, Bar, PieChart, Pie, Cell, 
+  XAxis, YAxis, CartesianGrid, Tooltip, Legend, 
+  ResponsiveContainer, LineChart, Line 
+} from 'recharts';
 import './admincss/Reports.css';
 
 const API_URL = `${import.meta.env.VITE_API_URL}/admin`;
@@ -198,7 +202,7 @@ export default function Reports() {
         </div>
       </div>
 
-      {/* System Health & Compliance */}
+      {/* System Health */}
       <div className="report-section">
         <h2>⚡ System Health & Compliance</h2>
         <div className="stats-grid">
@@ -233,11 +237,12 @@ export default function Reports() {
         </div>
       </div>
 
-      {/* Visual Analytics with Charts */}
+      {/* Charts */}
       <div className="report-section">
         <h2>📊 Transaction Volume Charts</h2>
         <div className="charts-grid">
-          {/* Transaction Distribution Chart */}
+
+          {/* Pie Chart */}
           <div className="chart-card">
             <h3>Transaction Distribution</h3>
             <ResponsiveContainer width="100%" height={300}>
@@ -250,13 +255,22 @@ export default function Reports() {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  
+                  /* 🔥 FIXED SAFE LABEL */
+                  label={({ name, percent }) => {
+                    const value = Number(percent) * 100;
+                    return `${name}: ${isNaN(value) ? "0" : value.toFixed(0)}%`;
+                  }}
+
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
                 >
                   {[transactionBreakdown.Deposits || 0, transactionBreakdown.Withdrawals || 0].map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? '#4caf50' : '#f44336'} />
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={index === 0 ? '#4caf50' : '#f44336'} 
+                    />
                   ))}
                 </Pie>
                 <Tooltip />
@@ -264,7 +278,7 @@ export default function Reports() {
             </ResponsiveContainer>
           </div>
 
-          {/* Financial Overview Chart */}
+          {/* Bar Chart */}
           <div className="chart-card">
             <h3>Financial Overview</h3>
             <ResponsiveContainer width="100%" height={300}>
@@ -281,6 +295,7 @@ export default function Reports() {
               </BarChart>
             </ResponsiveContainer>
           </div>
+
         </div>
       </div>
 
@@ -300,6 +315,7 @@ export default function Reports() {
                 ))}
               </div>
             </div>
+
             <div className="breakdown-card">
               <h3>Loan Types by Amount</h3>
               <div className="breakdown-list">
@@ -311,6 +327,7 @@ export default function Reports() {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       )}
